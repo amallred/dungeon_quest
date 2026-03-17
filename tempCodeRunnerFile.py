@@ -1,0 +1,1 @@
+\n1. Search for treasure\n2. Move to next room\n3. Check health and inventory\n4. 

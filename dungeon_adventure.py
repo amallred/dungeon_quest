@@ -72,10 +72,10 @@ def main():
             4. Quit the game
         """
         # TODO: Print the room number and the 4 menu options listed above
-        print(f"You are in room {room_number}, {name}.\nWhat would you like to do?\n1. Search for treasure\n2. Move to next room\n3. Check health and inventory\n4. Quit the game")
-
+        print(f"You are in room {room_number}.\nWhat would you like to do?\n1. Search for treasure\n2. Move to next room\n3. Check health and inventory\n4. Quit the game")
 
     def search_room(player, treasures):
+
         """
         Simulates searching the current room.
 
@@ -93,7 +93,7 @@ def main():
             - If trap: subtract 2 from player's health and print a warning.
         """
         # TODO: Randomly assign outcome = random.choice(["treasure", "trap"])
-        outcome = random.choise(["treasure", "trap"])
+        outcome = random.choice(["treasure", "trap"])
         
         # TODO: Write an if/else to handle treasure vs trap outcomes
         # TODO: Update player dictionary accordingly
@@ -168,29 +168,33 @@ def main():
                 4. Quit
             - Health below 1 ends the game early.
         """
+        print(f"Welcome, {player["name"]}!")
         # TODO: Loop through 5 rooms (1–5)
         room_num = 1
         for room in range (1, 6):
             # TODO: Inside each room, prompt player choice using input()
-            player_choice = int(input(f"Welcome to room {room_num}! What would you like to do? {display_options}"))
+            display_options(room_num)
+            player_choice = int(input("Make your choice (1-4):"))
             
             # TODO: Use if/elif to handle each choice (1–4)
             # TODO: Break or return appropriately when player quits or dies
             
             while room_num < 6:
                 if player_choice == 1:
-                    search_room()
+                    search_room(player, treasures)
                     break
                 elif player_choice == 2:
                     room_num += 1
                     return
                 elif player_choice == 3:
-                    check_status()
+                    check_status(player)
                 elif player_choice == 4:
                     print("You have quit the game.")
                     break
+                else:
+                    print(f"{player_choice} is not a valid option.")
             # TODO: Call end_game() after all rooms are explored
-            end_game()
+            end_game(player, treasures)
             
 
 
