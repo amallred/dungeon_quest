@@ -123,13 +123,16 @@ def main():
         """
         # TODO: Print player health
         print(f"Health: {player["health"]}")
-        # TODO: Otherwise print “You have no items yet.”
-        if not player["inventory"]:
-            print("You have no items yet.")
+        
+
+
         # TODO: If the inventory list is not empty, print items joined by commas
+        if player["inventory"]:
+            print("Inventory", list(player["inventory"].keys()))
+        # TODO: Otherwise print “You have no items yet.”
         else:
-            inventory = "Inventory" + ','.join(player["inventory"])
-            print(inventory)
+            print("You have no items yet.")
+            
         return player
 
 
@@ -189,7 +192,7 @@ def main():
                     break
                 elif player_choice == 2:
                     room_num += 1
-                    return
+                    break
                 elif player_choice == 3:
                     check_status(player)
                 elif player_choice == 4:
