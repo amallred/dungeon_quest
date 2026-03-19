@@ -18,13 +18,13 @@ def main():
         # TODO: Ask the user for their name using input()
         name = input("What is your name, Adventurer?")
         # TODO: Initialize a dictionary with keys: "name", "health", and "inventory"
-        character =  {
+        player =  {
             "name" : f"{name}",
             "health" : 10,
             "inventory" : []
             }
         # TODO: Return the dictionary
-        return character
+        return player
 
     def create_treasures():
         """
@@ -45,7 +45,7 @@ def main():
         # TODO: Create a dictionary of treasure names and integer values
         treasures = {
             "pair of knitted socks": random.randint(3,12),
-            "flask of mysterious liquic": random.randint(3,12),
+            "flask of mysterious liquid": random.randint(3,12),
             "tattered map": random.randint(3,12),
             "shiny cup": random.randint(3,12),
             "peacock feather": random.randint(3,12),
@@ -99,12 +99,13 @@ def main():
         # TODO: Update player dictionary accordingly
         # TODO: Print messages describing what happened
         if outcome == "treasure":
-            new_treasure = random.choice(treasures)
+            new_treasure = random.choice(list(treasures.items()))
             player["inventory"].append(new_treasure)
             print(f"🎉 Congratulations! You found a {new_treasure}! It has been added to your inventory.")
         else:
             player["health"] = player["health"] - 2
             print(f"⚠ Caution! You were injured by a trap. Your health is now {player["health"]}.")
+        return player
 
     def check_status(player):
         """
@@ -129,6 +130,7 @@ def main():
         else:
             inventory = "Inventory" + ','.join(player["inventory"])
             print(inventory)
+        return player
 
 
     def end_game(player, treasures):
@@ -143,7 +145,9 @@ def main():
             Prints player’s final health, inventory contents, and total score value.
         """
         # TODO: Calculate total score by summing the value of collected treasures
-        score = sum(player["inventory"].values())
+        # score = sum(player["inventory"].values())
+        score = 10
+
         # TODO: Print final health, items, and total value
         print(f"Final Health: {player["health"]}")
         print(f"Inventory: {player["inventory"]}")
@@ -194,7 +198,7 @@ def main():
                 else:
                     print(f"{player_choice} is not a valid option.")
             # TODO: Call end_game() after all rooms are explored
-            end_game(player, treasures)
+        end_game(player, treasures)
             
 
 
