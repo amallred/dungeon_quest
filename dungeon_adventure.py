@@ -16,7 +16,7 @@ def main():
             {'name': 'Ailene', 'health': 10, 'inventory': []}
         """
         # TODO: Ask the user for their name using input()
-        name = input("What is your name, Adventurer?")
+        name = input("What is your name, Adventurer? ")
         # TODO: Initialize a dictionary with keys: "name", "health", and "inventory"
         player =  {
             "name" : f"{name}",
@@ -99,8 +99,9 @@ def main():
         # TODO: Update player dictionary accordingly
         # TODO: Print messages describing what happened
         if outcome == "treasure":
-            new_treasure = random.choice(list(treasures.items()))
+            new_treasure = random.choice(list(treasures.keys()))
             player["inventory"].append(new_treasure)
+            # player["inventory"].append(treasures[new_treasure])
             print(f"🎉 Congratulations! You found a {new_treasure}! It has been added to your inventory.")
         else:
             player["health"] = player["health"] - 2
@@ -123,12 +124,10 @@ def main():
         """
         # TODO: Print player health
         print(f"Health: {player["health"]}")
-        
-
 
         # TODO: If the inventory list is not empty, print items joined by commas
         if player["inventory"]:
-            print("Inventory", list(player["inventory"].keys()))
+            print(f"Inventory: {player["inventory"]}")
         # TODO: Otherwise print “You have no items yet.”
         else:
             print("You have no items yet.")
@@ -181,7 +180,7 @@ def main():
         for room in range (1, 6):
             # TODO: Inside each room, prompt player choice using input()
             display_options(room_num)
-            player_choice = int(input("Make your choice (1-4):"))
+            player_choice = int(input("Make your choice (1-4): "))
             
             # TODO: Use if/elif to handle each choice (1–4)
             # TODO: Break or return appropriately when player quits or dies
@@ -195,6 +194,7 @@ def main():
                     break
                 elif player_choice == 3:
                     check_status(player)
+                    break
                 elif player_choice == 4:
                     print("You have quit the game.")
                     break
