@@ -175,16 +175,13 @@ def main():
         """
         print(f"Welcome, {player["name"]}!")
         # TODO: Loop through 5 rooms (1–5)
-        room_num = 1
         for room in range (1, 7):
             # TODO: Inside each room, prompt player choice using input()
-            display_options(room_num)
+            display_options(room)
             player_choice = int(input("Make your choice (1-4): "))
             
             # TODO: Use if/elif to handle each choice (1–4)
             # TODO: Break or return appropriately when player quits or dies
-
-            # while room_num < 6:
             if player_choice == 1:
                 search_room(player, treasures)
                 continue
