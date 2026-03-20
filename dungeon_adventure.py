@@ -131,7 +131,6 @@ def main():
         # TODO: Otherwise print “You have no items yet.”
         else:
             print("You have no items yet.")
-            
         return player
 
 
@@ -177,32 +176,31 @@ def main():
         print(f"Welcome, {player["name"]}!")
         # TODO: Loop through 5 rooms (1–5)
         room_num = 1
-        for room in range (1, 6):
+        for room in range (1, 7):
             # TODO: Inside each room, prompt player choice using input()
             display_options(room_num)
             player_choice = int(input("Make your choice (1-4): "))
             
             # TODO: Use if/elif to handle each choice (1–4)
             # TODO: Break or return appropriately when player quits or dies
-            
-            while room_num < 6:
-                if player_choice == 1:
-                    search_room(player, treasures)
-                    break
-                elif player_choice == 2:
-                    room_num += 1
-                    break
-                elif player_choice == 3:
-                    check_status(player)
-                    break
-                elif player_choice == 4:
-                    print("You have quit the game.")
-                    break
-                else:
-                    print(f"{player_choice} is not a valid option.")
+
+            # while room_num < 6:
+            if player_choice == 1:
+                search_room(player, treasures)
+                continue
+            elif player_choice == 2:
+                room += 1
+                continue
+            elif player_choice == 3:
+                check_status(player)
+                continue
+            elif player_choice == 4:
+                print("You have quit the game.")
+                continue
+            else:
+                print(f"{player_choice} is not a valid option.")
             # TODO: Call end_game() after all rooms are explored
         end_game(player, treasures)
-            
 
 
     # -----------------------------------------------------
