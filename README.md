@@ -47,3 +47,16 @@ You will build a game where:
 ## Submission
 Submit the link to your completed GitHub repository in OpenClass when finished.
 
+## MY NOTES
+This was a great activity for exploring loops and logic! There are some things I'd like to attempt when I return to this project beyond the stretch goals:
+
+### Future additions:
+
+- Stretch goals:
+  - Create a trap dictionary and randomly assign different traps with varying damage values.
+  - Implement a scoring system that combines total treasure value and remaining health.
+  - Allow players to play multiple rounds and track high scores across games.
+  - Add new events like healing potions or bonus rooms.
+- My goals:
+  - Implement death statement when health reaches 0.
+  - Format the printing to be more readable by the user.
